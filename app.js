@@ -15,6 +15,12 @@ const forgotPasswordRoutes = require('./routes/Password/forgot');
 const resetPasswordRoutes = require('./routes/Password/reset'); 
 const changePasswordRoutes = require('./routes/Password/changepassword');
 const editUserRoutes = require('./routes/User/editUser');
+const Vehicles = require('./models/vehicle');
+const addVehicleRoutes = require('./routes/Vehicles/addVehicle');
+const getVehicleRoutes = require('./routes/Vehicles/getVehicles');
+const updateVehicleRoutes = require('./routes/Vehicles/updateVehicle');
+const deleteVehicleRoutes = require('./routes/Vehicles/deleteVehicle');
+const deleteAllVehiclesRoute = require('./routes/Vehicles/deleteallVehicles');
 var cors = require('cors');
 
 
@@ -64,6 +70,11 @@ app.use(forgotPasswordRoutes);
 app.use(resetPasswordRoutes);
 app.use(changePasswordRoutes);
 app.use(editUserRoutes);
+app.use(addVehicleRoutes);
+app.use(getVehicleRoutes);
+app.use(updateVehicleRoutes);
+app.use(deleteVehicleRoutes);
+app.use(deleteAllVehiclesRoute);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
