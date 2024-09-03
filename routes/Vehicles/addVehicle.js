@@ -27,9 +27,13 @@ router.post('/api/vehicles/addVehicle', async (req, res) => {
         if (!brand) {
             brand = await Brand.create({ name: brandName });
         }
+
         let model = await Model.findOne({ name: modelName, brand: brand._id });
         if (!model) {
-            model = await Model.create({ name: modelName, brand: brand._id });
+            model = await Model.create({ 
+                name: modelName, 
+                brand: brand._id,
+            });
         }
 
         const existingVehicle = await Vehicle.findOne({
