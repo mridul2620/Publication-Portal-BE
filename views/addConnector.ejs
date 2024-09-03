@@ -1,0 +1,39 @@
+<!-- views/addConnector.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Connector</title>
+</head>
+<body>
+    <h1>Add New Connector</h1>
+    <form action="/connectors" method="POST" enctype="multipart/form-data">
+        <div>
+            <label>Connector Name:</label>
+            <input type="text" name="connectorName" required>
+        </div>
+        <div>
+            <label>Description:</label>
+            <input type="text" name="description" required>
+        </div>
+        <div>
+            <label>Number of Pins:</label>
+            <input type="text" name="numberOfPins" required>
+        </div>
+        <div>
+            <label>Model Name:</label>
+            <input type="text" name="modelName" required>
+        </div>
+        <div>
+            <label>Part Number:</label>
+            <input type="text" name="partNumber" required>
+        </div>
+        <div>
+            <label>Upload Image:</label>
+            <input type="file" name="image" accept=".jpg, .jpeg, .svg, .pdf">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

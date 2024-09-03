@@ -21,6 +21,9 @@ const getVehicleRoutes = require('./routes/Vehicles/getVehicles');
 const updateVehicleRoutes = require('./routes/Vehicles/updateVehicle');
 const deleteVehicleRoutes = require('./routes/Vehicles/deleteVehicle');
 const deleteAllVehiclesRoute = require('./routes/Vehicles/deleteallVehicles');
+const path = require('path');
+const connectorRoutes = require('./routes/Connectors/addConnector');
+const showConnector = require('./routes/Connectors/getConnectors');
 var cors = require('cors');
 
 
@@ -29,6 +32,7 @@ const app = express();
 mongoose.connect(process.env.MONGODB_URI);
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 const corsOptions = {
     origin: '*',
@@ -75,6 +79,12 @@ app.use(getVehicleRoutes);
 app.use(updateVehicleRoutes);
 app.use(deleteVehicleRoutes);
 app.use(deleteAllVehiclesRoute);
+app.use('/', connectorRoutes);
+app.use(showConnector);
+
+app.get('/add-connector', (req, res) => {
+    res.render('addConnector');
+  });
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
