@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Vehicle = require('../../models/vehicle');
-const Brand = require('../../models/brand');
-const Model = require('../../models/model');
+const Vehicle = require('../../models/vehicle/vehicle');
+const Brand = require('../../models/vehicle/brand');
+const Model = require('../../models/vehicle/model');
 
 router.post('/api/vehicles/addVehicle', async (req, res) => {
     const {

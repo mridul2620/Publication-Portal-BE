@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Vehicle = require('../../models/vehicle');
+const Vehicle = require('../../models/vehicle/vehicle');
 
 
 router.delete('/api/vehicles/deleteVehicle/:id', async (req, res) => {

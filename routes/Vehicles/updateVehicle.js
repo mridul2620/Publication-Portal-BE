@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const Vehicle = require('../../models/vehicle');
-const Model = require('../../models/model');
+const Vehicle = require('../../models/vehicle/vehicle');
+const Model = require('../../models/vehicle/model');
 
 router.put('/api/vehicles/:id', async (req, res) => {
     const { modelId, modelYear, engine, bodyStyle, drive, transmission } = req.body;
