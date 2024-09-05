@@ -3,7 +3,7 @@ const express = require('express');
 const Connector = require('../../models/connector');
 const router = express.Router();
 
-router.get('/connectors', async (req, res) => {
+router.get('/api/connectors', async (req, res) => {
   try {
     const connectors = await Connector.find();
 
@@ -12,9 +12,9 @@ router.get('/connectors', async (req, res) => {
       connectorName: connector.connectorName,
       description: connector.description,
       numberOfPins: connector.numberOfPins,
-      modelName: connector.modelName,
+      color: connector.color,
       partNumber: connector.partNumber,
-      imageUrl: `/connectors/${connector._id}/image`, // URL to retrieve the image
+      imageUrl: `/connectors/${connector._id}/image`, 
     }));
 
     res.status(200).json({ connectors: connectorList });

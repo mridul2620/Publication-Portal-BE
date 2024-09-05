@@ -24,6 +24,9 @@ const deleteAllVehiclesRoute = require('./routes/Vehicles/deleteallVehicles');
 const path = require('path');
 const connectorRoutes = require('./routes/Connectors/addConnector');
 const showConnector = require('./routes/Connectors/getConnectors');
+const deleteAllConnectors=require('./routes/Connectors/deleteAllConnectors');
+const deleteConnector=require('./routes/Connectors/deleteConnector');
+const updateConnector=require('./routes/Connectors/updateConnector');
 var cors = require('cors');
 
 
@@ -81,6 +84,9 @@ app.use(deleteVehicleRoutes);
 app.use(deleteAllVehiclesRoute);
 app.use('/', connectorRoutes);
 app.use(showConnector);
+app.use(deleteAllConnectors);
+app.use(deleteConnector);
+app.use(updateConnector);
 
 app.get('/add-connector', (req, res) => {
     res.render('addConnector');

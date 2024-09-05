@@ -6,18 +6,17 @@ const router = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-router.post('/connectors', upload.single('image'), async (req, res) => {
-  const { connectorName, description, numberOfPins, modelName, partNumber } = req.body;
+router.post('/api/connectors', upload.single('image'), async (req, res) => {
+  const { connectorName, description, numberOfPins, color, partNumber } = req.body;
 
   const newConnectorData = {
     connectorName,
     description,
     numberOfPins,
-    modelName,
+    color,
     partNumber,
   };
 
-  // Check if an image was uploaded
   if (req.file) {
     newConnectorData.image = req.file.buffer;
     newConnectorData.imageType = req.file.mimetype;
