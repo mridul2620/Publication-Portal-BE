@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Add New Connector</h1>
-    <form action="/api/connectors" method="POST" enctype="multipart/form-data">
+    <form action="/api/ml/connectors" method="POST" enctype="multipart/form-data">
         <div>
             <label>Connector Name:</label>
             <input type="text" name="connectorName" required>
@@ -28,6 +28,14 @@
         <div>
             <label>Part Number:</label>
             <input type="text" name="partNumber" required>
+        </div>
+        <div>
+            <label>Power Supply:</label>
+            <input type="text" name="powerSupply" required>
+        </div>
+        <div>
+            <label>Location:</label>
+            <input type="text" name="location" required>
         </div>
         <div>
             <label>Upload Image:</label>

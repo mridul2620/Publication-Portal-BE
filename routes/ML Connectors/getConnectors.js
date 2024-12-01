@@ -1,11 +1,11 @@
 // routes/Connectors/connectors.js
 const express = require('express');
-const Connector = require('../../models/connector');
+const MLConnector = require('../../models/mlconnector');
 const router = express.Router();
 
-router.get('/api/connectors', async (req, res) => {
+router.get('/api/ml/connectors', async (req, res) => {
   try {
-    const connectors = await Connector.find();
+    const connectors = await MLConnector.find();
 
     const connectorList = connectors.map(connector => ({
       _id: connector._id,

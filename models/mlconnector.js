@@ -1,7 +1,7 @@
 // models/Connector.js
 const mongoose = require('mongoose');
 
-const connectorSchema = new mongoose.Schema({
+const mlconnectorSchema = new mongoose.Schema({
   connectorName: { type: String, required: true },
   description: { type: String, required: true },
   numberOfPins: { type: String, required: true },
@@ -13,6 +13,6 @@ const connectorSchema = new mongoose.Schema({
   imageType: { type: String} // Store the image MIME type (e.g., 'image/jpeg')
 });
 
-const Connector = mongoose.model('Connector', connectorSchema);
+const MLConnector = mongoose.model('MLConnector', mlconnectorSchema);
 
-module.exports = Connector;
+module.exports = MLConnector;
