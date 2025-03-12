@@ -14,6 +14,8 @@ router.get('/api/connectors', async (req, res) => {
       numberOfPins: connector.numberOfPins,
       color: connector.color,
       partNumber: connector.partNumber,
+      location:connector.location,
+      powerSupply:connector.powerSupply,
       imageUrl: `/connectors/${connector._id}/image`, 
     }));
 

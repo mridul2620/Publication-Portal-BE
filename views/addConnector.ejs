@@ -1,4 +1,4 @@
-<!-- views/addConnector.ejs -->
+<!-- views/addConnector.ejs
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Add New Connector</h1>
-    <form action="/api/connectors" method="POST" enctype="multipart/form-data">
+    <form action="/api/ml/connectors" method="POST" enctype="multipart/form-data">
         <div>
             <label>Connector Name:</label>
             <input type="text" name="connectorName" required>
@@ -30,10 +30,65 @@
             <input type="text" name="partNumber" required>
         </div>
         <div>
+            <label>Power Supply:</label>
+            <input type="text" name="powerSupply" required>
+        </div>
+        <div>
+            <label>Location:</label>
+            <input type="text" name="location" required>
+        </div>
+        <div>
             <label>Upload Image:</label>
             <input type="file" name="image" accept=".jpg, .jpeg, .svg, .pdf">
         </div>
         <button type="submit">Submit</button>
     </form>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Connector Data</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+    <h2>Upload Connector Data</h2>
+
+    <input type="file" id="fileInput" accept=".xlsx, .xls">
+    <button id="uploadBtn">Upload</button>
+
+    <script>
+        document.getElementById('uploadBtn').addEventListener('click', async () => {
+            const fileInput = document.getElementById('fileInput');
+            if (!fileInput.files.length) {
+                alert("Please select a file first.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch('/api/ml/connectors', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    alert("File uploaded successfully!");
+                } else {
+                    alert("Error uploading file.");
+                }
+            } catch (error) {
+                console.error("Upload failed:", error);
+                alert("An error occurred while uploading.");
+            }
+        });
+    </script>
+
 </body>
 </html>

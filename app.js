@@ -27,6 +27,11 @@ const showConnector = require('./routes/Connectors/getConnectors');
 const deleteAllConnectors=require('./routes/Connectors/deleteAllConnectors');
 const deleteConnector=require('./routes/Connectors/deleteConnector');
 const updateConnector=require('./routes/Connectors/updateConnector');
+const mlconnectorRoutes = require('./routes/ML Connectors/addConnector');
+const showmlConnector = require('./routes/ML Connectors/getConnectors');
+const deletemlAllConnectors=require('./routes/ML Connectors/deleteAllConnectors');
+const deletemlConnector=require('./routes/ML Connectors/deleteConnector');
+const updatemlConnector=require('./routes/ML Connectors/updateConnector');
 var cors = require('cors');
 
 
@@ -82,11 +87,16 @@ app.use(getVehicleRoutes);
 app.use(updateVehicleRoutes);
 app.use(deleteVehicleRoutes);
 app.use(deleteAllVehiclesRoute);
-app.use('/', connectorRoutes);
+//app.use('/', connectorRoutes);
 app.use(showConnector);
 app.use(deleteAllConnectors);
 app.use(deleteConnector);
 app.use(updateConnector);
+app.use('/', mlconnectorRoutes);
+app.use(showmlConnector);
+app.use(deletemlAllConnectors);
+app.use(deletemlConnector);
+app.use(updatemlConnector);
 
 app.get('/add-connector', (req, res) => {
     res.render('addConnector');
